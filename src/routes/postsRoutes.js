@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     filename: function(req, file, cb) {
         cb(null, file.originalname);
     }
-})
+});
 
 const upload = multer({dest:"./uploads", storage});
 
@@ -26,6 +26,6 @@ const routes = (app) => {
     app.post("/posts", postarNovoPost);
     app.post("/upload", upload.single("imagem"), uploadImagem);
     app.put("/upload/:id", atualizarNovoPost);
-}
+};
 
 export default routes;
